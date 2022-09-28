@@ -28,7 +28,6 @@ describe("FallOut", function () {
       });
       const NewOwner = await fallOut.owner();
       expect(NewOwner).to.equal(otherAccount.address);
-      console.log(owner, NewOwner);
     });
   });
 });
