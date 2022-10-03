@@ -27,7 +27,6 @@ module.exports = {
       url: ALCHEMY_API_KEY_URL,
       accounts: [RINKEBY_PRIVATE_KEY, RINKEBY_PRIVATE_KEY_2],
       chainId: 4,
-      gas: 2300000,
     },
     mumbai: {
       url: QUICKNODE_HTTP_URL,
