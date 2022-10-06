@@ -25,7 +25,7 @@ describe("Force", function () {
   }
 
   describe("Deployment", function () {
-    it("Should Increase the Balance7", async function () {
+    it("Should Increase the Balance", async function () {
       const { owner, otherAccount, oldBalance, updatedBalance } =
         await loadFixture(deployOneYearLockFixture);
       console.log(oldBalance, updatedBalance);
