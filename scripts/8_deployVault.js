@@ -4,7 +4,7 @@ const hre = require("hardhat");
 async function main() {
   const VaultContract = await hre.ethers.getContractFactory("Vault");
   // attach your instance address
-  const Instance = "0x1886A9864EeDfBA3Cb5b0A609e14DAB74b296607";
+  const Instance = "0x3E7Fc3ac4940B08f51C791130101E4a4b02C8697";
   const Vault = VaultContract.attach(Instance);
   const lock = await Vault.locked();
   const password = await ethers.provider.getStorageAt(Vault.address, 1);

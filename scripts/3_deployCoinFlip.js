@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   const CoinFlipContract = await hre.ethers.getContractFactory("CoinFlip");
   // attach your instance address
-  const Instance = "0x0Ab214A3abDD4F146bA1a4CA561B5D917417C0f0";
+  const Instance = "0x743Aa724C7A2e78e4A6e511Ab8CD0CA998a99CA6";
   const CoinFlip = CoinFlipContract.attach(Instance);
 
   const consecutiveCount = await CoinFlip.consecutiveWins();

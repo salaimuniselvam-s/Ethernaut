@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   const ForceContract = await hre.ethers.getContractFactory("Force");
   // attach your instance address
-  const Instance = "0x4358BF8D34318c6942c91fa8A99bDB3d5315c8b2";
+  const Instance = "0xF394F3BDfDeD9F20AA2f32E4FCF8D814fd16FfF1";
   const Force = ForceContract.attach(Instance);
   const oldBalance = await ethers.provider.getBalance(Force.address);
   const AttackForceContract = await ethers.getContractFactory("AttackForce");
