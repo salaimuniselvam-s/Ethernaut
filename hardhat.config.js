@@ -30,7 +30,7 @@ module.exports = {
     },
     goerli: {
       url: GOERLI_API_KEY,
-      accounts: [PRIVATE_KEY, PRIVATE_KEY_2],
+      accounts: [PRIVATE_KEY_2, PRIVATE_KEY],
       chainId: 5,
     },
     mumbai: {
