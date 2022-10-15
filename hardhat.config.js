@@ -35,6 +35,9 @@ module.exports = {
       url: GOERLI_API_KEY,
       accounts: [PRIVATE_KEY_2, PRIVATE_KEY],
       chainId: 5,
+      gas: 2100000,
+      gasPrice: 8000000000,
+      saveDeployments: true,
     },
     mumbai: {
       url: QUICKNODE_HTTP_URL,
