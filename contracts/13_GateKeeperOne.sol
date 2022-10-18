@@ -2,7 +2,6 @@
 pragma solidity ^0.6.0;
 
 import "./utils/SafeMath.sol";
-import "hardhat/console.sol";
 
 contract GatekeeperOne {
     using SafeMath for uint256;
@@ -19,10 +18,10 @@ contract GatekeeperOne {
     }
 
     modifier gateThree(bytes8 _gateKey) {
-        console.logBytes8(_gateKey);
-        console.log("uint32(uint64(_gateKey)) %s", uint32(uint64(_gateKey)));
-        console.log("uint64(_gateKey) %s", uint64(_gateKey));
-        console.log("uint16(tx.origin) %s", uint16(tx.origin));
+        // console.logBytes8(_gateKey);
+        // console.log("uint32(uint64(_gateKey)) %s", uint32(uint64(_gateKey)));
+        // console.log("uint64(_gateKey) %s", uint64(_gateKey));
+        // console.log("uint16(tx.origin) %s", uint16(tx.origin));
         require(
             uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)),
             "GatekeeperOne: invalid gateThree part one"

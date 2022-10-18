@@ -36,7 +36,7 @@ module.exports = {
       accounts: [PRIVATE_KEY_2, PRIVATE_KEY],
       chainId: 5,
       gas: 2100000,
-      gasPrice: 8000000000,
+      gasPrice: 20000000000,
       saveDeployments: true,
     },
     mumbai: {

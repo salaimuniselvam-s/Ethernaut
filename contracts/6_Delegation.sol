@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
-import "hardhat/console.sol";
 
 contract Delegate {
     address public owner;
@@ -25,7 +24,6 @@ contract Delegation {
 
     fallback() external {
         (bool result, ) = address(delegate).delegatecall(msg.data);
-        console.log(result);
         if (result) {
             this;
         }

