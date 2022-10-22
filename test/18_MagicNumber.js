@@ -25,11 +25,11 @@ describe("MagicNumber", function () {
   }
 
   describe("Deployment", function () {
-    it("Should Create a Contract with only 10 Opcodes", async function () {
+    it("Should Create a Contract with only 10 Opcodes which returns 42", async function () {
       const { owner, otherAccount, MagicNumber, AttackMagicNumber } =
         await loadFixture(deployOneYearLockFixture);
       const initialAddr = await MagicNumber.solver();
-      console.log(initialAddr);
+      console.log("Initial Address is", initialAddr);
       const tx = await AttackMagicNumber.Attack();
       const receipt = await tx.wait(1);
       let Final;
@@ -38,9 +38,13 @@ describe("MagicNumber", function () {
         console.log(`Event ${event.event} with args ${event.args}`);
       }
       const finalAddr = await MagicNumber.solver();
-      console.log(finalAddr);
+      const updatedValue = await owner.call({
+        to: finalAddr,
+      });
+      console.log("Final Address is", finalAddr);
       expect(initialAddr).to.equal(ethers.constants.AddressZero);
       expect(finalAddr).to.equal(Final);
+      expect(parseInt(updatedValue)).to.equal(42);
     });
   });
 });

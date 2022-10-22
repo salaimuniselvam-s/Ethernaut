@@ -26,6 +26,10 @@ async function main() {
   const finalAddr = await MagicNumber.solver();
   console.log(finalAddr);
   console.log(Final);
+  const updatedValue = await owner.call({
+    to: finalAddr,
+  });
+  console.log(updatedValue, parseInt(updatedValue), "uV");
 }
 
 main().catch((error) => {
