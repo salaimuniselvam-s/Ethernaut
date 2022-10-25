@@ -15,6 +15,10 @@ contract StorageUnwrapper {
     }
     Struct sms;
 
+    function getDynArray(uint _location) public pure returns (bytes32) {
+        return keccak256(abi.encode(bytes32(_location)));
+    }
+
     function setStruct() public {
         sms = Struct(7, 9, "solidity");
     }

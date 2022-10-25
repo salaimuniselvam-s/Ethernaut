@@ -48,11 +48,15 @@ describe("StorageUnwrapper", function () {
       await StorageUnwrapper.setDynamicArray(19);
       // the starting storage location of the dynamic array will return how many elements are stored in the array
 
-      const findValue = ethers.utils.keccak256(
+      const DynArrlocation = await StorageUnwrapper.getDynArray(5);
+      const DynLoc = await ethers.provider.getStorageAt(addr, DynArrlocation);
+      // console.log(DynLoc);
+
+      let findValue = ethers.utils.keccak256(
         ethers.utils.hexZeroPad(ethers.utils.hexlify(5), 32)
       );
       const slot5 = await ethers.provider.getStorageAt(addr, findValue);
-      // console.log(slot5);
+      console.log(slot5);
 
       //string
       const slot6 = await ethers.provider.getStorageAt(addr, 6);
@@ -66,7 +70,7 @@ describe("StorageUnwrapper", function () {
       await StorageUnwrapper.setStruct();
       const slot8 = await ethers.provider.getStorageAt(addr, 8);
       const slot10 = await ethers.provider.getStorageAt(addr, 10);
-      console.log(slot8, ethers.utils.toUtf8String(slot10));
+      // console.log(slot8, ethers.utils.toUtf8String(slot10));
     });
   });
 });
