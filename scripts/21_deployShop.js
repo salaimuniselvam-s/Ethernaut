@@ -9,6 +9,7 @@ async function main() {
   const AttackBuyerContract = await ethers.getContractFactory("AttackBuyer");
   const AttackBuyer = await AttackBuyerContract.deploy(Shop.address);
   await AttackBuyer.deployed();
+  console.log(AttackBuyer.address);
   const initialPrice = await Shop.price();
   const tx = await AttackBuyer.buy();
   await tx.wait(1);

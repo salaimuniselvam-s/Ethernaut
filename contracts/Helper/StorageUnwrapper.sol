@@ -13,7 +13,16 @@ contract StorageUnwrapper {
         uint256 value;
         string s;
     }
+    mapping(address => uint) map;
     Struct sms;
+
+    function setMapping() public {
+        map[msg.sender] = 7;
+    }
+
+    function getMapping() public view returns (uint) {
+        return map[msg.sender];
+    }
 
     function getDynArray(uint _location) public pure returns (bytes32) {
         return keccak256(abi.encode(bytes32(_location)));
