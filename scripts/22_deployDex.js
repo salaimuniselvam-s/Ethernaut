@@ -22,8 +22,6 @@ async function main() {
   const balance3 = await Dex.balanceOf(token1, Dex.address);
   const balance4 = await Dex.balanceOf(token2, Dex.address);
   console.log(balance1, balance2, balance3, balance4);
-  // const tx = await Dex.addLiquidity(token1, ethers.utils.parseEther("1"));
-  // tx.wait(1);
 }
 
 main().catch((error) => {
