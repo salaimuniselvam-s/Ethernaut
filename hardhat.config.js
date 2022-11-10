@@ -33,11 +33,6 @@ module.exports = {
     ],
   },
   networks: {
-    rinkeby: {
-      url: ALCHEMY_API_KEY_URL,
-      accounts: [PRIVATE_KEY, PRIVATE_KEY_2],
-      chainId: 4,
-    },
     goerli: {
       url: GOERLI_API_KEY,
       accounts: [PRIVATE_KEY_2, PRIVATE_KEY],
